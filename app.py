@@ -103,7 +103,7 @@ def parse_price(url):
         else:
             html_page = requests.get(url, headers=Headers(headers=True).generate()).text
             soup = BeautifulSoup(html_page, 'lxml')
-            price = universal_parser(soup, 'span,p,h1,h2,i,b,brs,strong,div,meta'.split(','))
+            price = universal_parser(soup, 'span,p,div,i,b,brs,strong,h2,h1,meta'.split(','))
             if price:
                 return stripp(price.strip()).replace(' ', '')
             else:
